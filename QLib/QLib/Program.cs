@@ -549,19 +549,21 @@ namespace QLib
                 QLibSimple.usingQLibSimple = true;
                 usingLib.Add(QLibSimple.name);
 
+                Console.WriteLine("path: ");
                 commend = Console.ReadLine();
-                commends.Add(commend);
+                string path  = @"data.txt"; 
+
 
                 if (commends[1] == "save")
                 {
 
-                    qLibSimple.save_txt();
+                    qLibSimple.save_txt(path, strings, ints);
                 }
 
                 else if (commends[1] == "load")
                 {
 
-                    qLibSimple.load_txt();
+                    qLibSimple.load_txt(path);
                 }
             }
             #endregion
@@ -601,6 +603,15 @@ namespace QLib
                     goto start;
             }
             #endregion
+        }
+
+        struct Serwer
+        {
+            public double heigh;
+            public double width;
+
+            public Serwer(double h = 10, double w = 10)
+            { heigh = h; width = w;}
         }
     }
 }
