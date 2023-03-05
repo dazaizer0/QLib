@@ -5,8 +5,8 @@ QLib - string - int - bool
 
         answer- true or false
 
-    true - yes
-    false - no
+        true - yes
+        false - no
 
 - ints - index, value
     1. add
