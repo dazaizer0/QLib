@@ -26,6 +26,7 @@ namespace QLib
             #region main-stream
             start:
 
+            Console.Clear();
             Console.WriteLine();
             foreach (var item in usingLib)
             {
@@ -60,7 +61,7 @@ namespace QLib
             {
                 commend = Console.ReadLine();
                 commends.Add(commend);
-
+            
                 if (commends[1] == "int")
                 {
                     Console.Write("while.");
@@ -365,10 +366,85 @@ namespace QLib
             }
             #endregion
 
+            #region write
+            if (commends[0] == "write")
+            {
+
+                Console.WriteLine("for: ");
+                var text = Console.ReadLine();
+
+                write(text);
+            }
+            #endregion
+
+            #region loop
+            if (commends[0] == "for")
+            {
+                Console.WriteLine("for: ");
+                var for_var = Console.ReadLine();
+
+                commend = Console.ReadLine();
+                commends.Add(commend);
+
+                if (commends[1] == "from")
+                {
+                    Console.WriteLine("from: ");
+                    var from_var = Console.ReadLine();
+
+                    commend = Console.ReadLine();
+                    commends.Add(commend);
+
+                    if (commends[2] == "how")
+                    {
+                        Console.WriteLine("how: ");
+                        var how_var = Console.ReadLine();
+
+                        commend = Console.ReadLine();
+                        commends.Add(commend);
+
+                        if (commends[3] == "what")
+                        {
+                            int forint = int.Parse(for_var);
+                            int fromint = int.Parse(from_var);
+                            int howint = int.Parse(how_var);
+
+                            Console.WriteLine("for { }: ");
+                            var choice = Console.ReadLine();
+
+                            if(choice == "write")
+                            {
+                                Console.WriteLine("in write: ");
+                                var what = Console.ReadLine();
+
+                                for (int i = fromint; i < forint; i += howint)
+                                {
+                                    Console.WriteLine(write(what));
+                                }
+                            }
+
+                            if (choice == "i")
+                            {
+                                for (int i = fromint; i < forint; i += howint)
+                                {
+                                    Console.WriteLine(i);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            #endregion
+
             #region finish
             line += 1;
             goto start;
             #endregion
+        }
+
+        static string write(string text)
+        {
+            return text;
         }
     }
 }
