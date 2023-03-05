@@ -1,7 +1,8 @@
 # QLib
 QLib - string - int - bool
 - bool
-    ?question. 
+    ?question.  
+
         answer- true or false
 
     true - yes
