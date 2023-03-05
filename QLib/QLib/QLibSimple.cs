@@ -18,7 +18,7 @@ namespace QLib
             return text;
        }
 
-        public void save_txt(string path, Dictionary<int, string> strings, Dictionary<int, int> ints)
+        public void save_int(string path, int key, int value)
         {
 
             //string path = @"data.txt";  @ - sciesszka do pliku
@@ -35,8 +35,8 @@ namespace QLib
                 Console.WriteLine("\n File have opened...");
             }
 
-            streamWriter.WriteLine("strs: " + strings); // zapisujemy do pliku
-            streamWriter.WriteLine("ints: " + ints);
+            streamWriter.WriteLine("strs: " + key); // zapisujemy do pliku
+            streamWriter.WriteLine("ints: " + value);
 
             streamWriter.Close(); // zamykamy plik
         }

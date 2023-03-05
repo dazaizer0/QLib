@@ -545,19 +545,27 @@ namespace QLib
             #region txt.files
             if (commends[0] == "QLibSimple(txt)")
             {
+                Console.WriteLine("in development"); goto finish;
+
                 QLibSimple qLibSimple = new QLibSimple();
                 QLibSimple.usingQLibSimple = true;
                 usingLib.Add(QLibSimple.name);
 
                 Console.WriteLine("path: ");
+
                 commend = Console.ReadLine();
+                commends.Add(commend);
+
                 string path  = @"data.txt"; 
 
 
                 if (commends[1] == "save")
                 {
 
-                    qLibSimple.save_txt(path, strings, ints);
+                    foreach (var item in ints)
+                    {
+                        qLibSimple.save_int(path, item.Key, item.Value);
+                    }
                 }
 
                 else if (commends[1] == "load")
@@ -569,6 +577,7 @@ namespace QLib
             #endregion
 
             #region finish
+            finish:
 
             Console.Write("return> ");
             var end = Console.ReadLine();
@@ -603,15 +612,6 @@ namespace QLib
                     goto start;
             }
             #endregion
-        }
-
-        struct Serwer
-        {
-            public double heigh;
-            public double width;
-
-            public Serwer(double h = 10, double w = 10)
-            { heigh = h; width = w;}
         }
     }
 }
