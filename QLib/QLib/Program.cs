@@ -12,11 +12,16 @@ namespace QLib
         {
             List<string> commends = new List<string>();
 
-            Queue<int> ints = new Queue<int>();
-            Queue<string> strings = new Queue<string>();
+            Dictionary<int, int> ints = new Dictionary<int, int>();
+            int ile_int = 0;
+
+            Dictionary<int, string> strings = new Dictionary<int, string>();
+            int ile_str = 0;
 
             commends.Clear();
             start:
+
+            Console.WriteLine();
             commends.Clear();
 
             int line = 0;
@@ -24,11 +29,11 @@ namespace QLib
 
             foreach (var item in ints)
             {
-                Console.Write(ints.ToArray().ToList().IndexOf(item) + ": ints: " + item + ", ");
+                Console.Write(item.Key + ": ints: " + item.Value + ", ");
             }
             foreach (var item in strings)
             {
-                Console.Write(strings.ToArray().ToList().IndexOf(item) + ": strings: " + item + ", ");
+                Console.Write(item.Key + ": strings: " + item.Value + ", ");
             }
 
             commend = Console.ReadLine();
@@ -40,7 +45,96 @@ namespace QLib
                 Console.Write(commends[i] + ".");
             }
 
-            if(commends[0] == "add")
+            if (commends[0] == "sum")
+            {
+                commend = Console.ReadLine();
+                commends.Add(commend);
+
+                if (commends[1] == "int")
+                {
+                    Console.Write("while.");
+                    commend = Console.ReadLine();
+                    commends.Add(commend);
+
+                    int ile = int.Parse(commends[2]);
+                    int[] indexs = new int[ile];
+                    int suma = 0;
+
+                    for (int i = 0; i < ile; i++)
+                    {
+                        Console.Write("int index: ");
+
+                        commend = Console.ReadLine();
+                        indexs[i] = int.Parse(commend);
+
+                        suma += ints[indexs[i]];
+
+                    }
+
+                    Console.WriteLine(suma);
+
+                    Console.Write("?save.");
+                    var choice = Console.ReadLine();
+
+                    switch (choice)
+                    {
+                        case "true":
+                            ile_int += 1;
+                            ints.Add(ile_int, suma);
+                            goto start;
+
+                        case "false":
+                            goto start;
+
+                        default:
+                            goto start;
+                    }
+                }
+
+                if (commends[1] == "str")
+                {
+                    Console.Write("while.");
+                    commend = Console.ReadLine();
+                    commends.Add(commend);
+
+                    int ile = int.Parse(commends[2]);
+
+                    int indx;
+                    string suma = "";
+
+                    for (int i = 0; i < ile; i++)
+                    {
+                        Console.Write("int index: ");
+
+                        commend = Console.ReadLine();
+                        indx = int.Parse(commend);
+
+                        suma += strings[indx];
+
+                    }
+                    Console.WriteLine(suma);
+
+                    Console.Write("?save.");
+                    var choice = Console.ReadLine();
+
+                    switch (choice)
+                    {
+                        case "true":
+                            ile_str += 1;
+                            strings.Add(ile_str, suma);
+                            goto start;
+
+                        case "false":
+                            goto start;
+
+                        default:
+                            goto start;
+                    }
+                }
+
+            }
+
+            if (commends[0] == "add")
             {
                 commend = Console.ReadLine();
                 commends.Add(commend);
@@ -50,7 +144,8 @@ namespace QLib
                     commend = Console.ReadLine();
                     commends.Add(commend);
 
-                    strings.Enqueue(commends[2].ToString());
+                    ile_str += 1;
+                    strings.Add(ile_str, commends[2].ToString());
 
                     Console.Clear();
                     goto start;
@@ -61,7 +156,8 @@ namespace QLib
                     commend = Console.ReadLine();
                     commends.Add(commend);
 
-                    ints.Enqueue(int.Parse(commends[2]));
+                    ile_int += 1;
+                    ints.Add(ile_int, int.Parse(commends[2]));
 
                     Console.Clear();
                     goto start;
