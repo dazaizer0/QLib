@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Q+", "Q+\Q+.csproj", "{C5DE34F6-72E5-4CE3-9862-A50C53E3C7FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLib", "QLib\QLib.csproj", "{3C303495-9A7E-42E1-8136-88052AFCBE9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C5DE34F6-72E5-4CE3-9862-A50C53E3C7FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5DE34F6-72E5-4CE3-9862-A50C53E3C7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5DE34F6-72E5-4CE3-9862-A50C53E3C7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5DE34F6-72E5-4CE3-9862-A50C53E3C7FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C303495-9A7E-42E1-8136-88052AFCBE9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C303495-9A7E-42E1-8136-88052AFCBE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C303495-9A7E-42E1-8136-88052AFCBE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C303495-9A7E-42E1-8136-88052AFCBE9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A69F6B7D-572D-49E3-A5DF-601FE09198E8}
+		SolutionGuid = {41977C7D-45FE-455B-BD7F-89104D2B4E21}
 	EndGlobalSection
 EndGlobal
