@@ -331,6 +331,8 @@ namespace QLib
 
             #endregion
 
+            #region rand()
+
             if (commends[0] == "rand()")
             {
                 commend = Console.ReadLine();
@@ -361,9 +363,10 @@ namespace QLib
                         goto start;
                 }
             }
+            #endregion
 
             #region finish
-                line += 1;
+            line += 1;
             goto start;
             #endregion
         }
