@@ -401,6 +401,29 @@ namespace QLib
 
                         Console.WriteLine(qLibSimple.write(text));
                     }
+
+                    if (commends[2] == "variable")
+                    {
+                        variable:
+                        Console.Write(" > ");
+                        var text = Console.ReadLine();
+                        try
+                        {
+                            int indx = int.Parse(text);
+
+                            QLibSimple qLibSimple = new QLibSimple();
+                            QLibSimple.usingQLibSimple = true;
+                            usingLib.Add(QLibSimple.name);
+
+
+                            Console.WriteLine(qLibSimple.write(strings[indx]));
+                        }
+                        catch
+                        {
+                            Console.WriteLine("erroe");
+                            goto variable;
+                        }
+                    }
                 }
             }
             #endregion
@@ -489,6 +512,28 @@ namespace QLib
                                         goto start_for;
                                     }
                                 }
+                            }
+
+                            if (choice == "variable")
+                            {
+
+                                Console.WriteLine("variable: ");
+                                var what = Console.ReadLine();
+
+                                try
+                                {
+                                    int what_int = int.Parse(what);
+
+                                    for (int i = fromint; i < forint; i += howint)
+                                    {
+                                        Console.WriteLine(ints[what_int]);
+                                    }
+                                }
+                                catch
+                                {
+                                    Console.WriteLine("error");
+                                }
+
                             }
                         }
 
