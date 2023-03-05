@@ -38,11 +38,11 @@ namespace QLib
 
             foreach (var item in ints)
             {
-                Console.Write(item.Key + ": ints: " + item.Value + ", ");
+                Console.Write(item.Key + ". ints >> " + item.Value + "| ");
             }
             foreach (var item in strings)
             {
-                Console.Write(item.Key + ": strings: " + item.Value + ", ");
+                Console.Write(item.Key + ". strings >> " + item.Value + "| ");
             }
 
             commend = Console.ReadLine();
@@ -331,8 +331,39 @@ namespace QLib
 
             #endregion
 
+            if (commends[0] == "rand()")
+            {
+                commend = Console.ReadLine();
+                int od_ = int.Parse(commend);
+
+                commend = Console.ReadLine();
+                int do_ = int.Parse(commend);
+
+                Random random = new Random();
+                int randnr = random.Next(od_, do_);
+
+                Console.WriteLine(randnr);
+
+                Console.Write("?save.");
+                var choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "true":
+                        ile_int += 1;
+                        ints.Add(ile_int, randnr);
+                        goto start;
+
+                    case "false":
+                        goto start;
+
+                    default:
+                        goto start;
+                }
+            }
+
             #region finish
-            line += 1;
+                line += 1;
             goto start;
             #endregion
         }
