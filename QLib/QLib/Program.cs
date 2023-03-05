@@ -376,7 +376,7 @@ namespace QLib
                 Console.WriteLine("> ");
                 var text = Console.ReadLine();
 
-                write(text);
+                QLibSimple.write(text);
             }
             #endregion
 
@@ -421,12 +421,22 @@ namespace QLib
 
                                 for (int i = fromint; i < forint; i += howint)
                                 {
-                                    Console.WriteLine(write(what));
+                                    Console.WriteLine(QLibSimple.write(what));
                                 }
                             }
 
                             if (choice == "i")
                             {
+                                for (int i = fromint; i < forint; i += howint)
+                                {
+                                    Console.WriteLine(i);
+                                }
+                            }
+
+                            if (choice == "sum()")
+                            {
+
+
                                 for (int i = fromint; i < forint; i += howint)
                                 {
                                     Console.WriteLine(i);
@@ -453,9 +463,6 @@ namespace QLib
             #endregion
         }
 
-        static string write(string text)
-        {
-            return text;
-        }
+        
     }
 }
