@@ -12,16 +12,25 @@ namespace QLib
         {
             List<string> commends = new List<string>();
 
+            List<string> usingLib = new List<string>()
+            {
+                "calc.lib"
+            };
+
             Dictionary<int, int> ints = new Dictionary<int, int>();
             int ile_int = 0;
 
             Dictionary<int, string> strings = new Dictionary<int, string>();
             int ile_str = 0;
 
-            commends.Clear();
+            #region main-stream
             start:
 
             Console.WriteLine();
+            foreach (var item in usingLib)
+            {
+                Console.WriteLine("Using: " + item + "; ");
+            }
             commends.Clear();
 
             int line = 0;
@@ -44,8 +53,10 @@ namespace QLib
             {
                 Console.Write(commends[i] + ".");
             }
+            #endregion
 
-            if (commends[0] == "sum")
+            #region sum()
+            if (commends[0] == "sum()")
             {
                 commend = Console.ReadLine();
                 commends.Add(commend);
@@ -133,8 +144,10 @@ namespace QLib
                 }
 
             }
+            #endregion
 
-            if (commends[0] == "add")
+            #region add()
+            if (commends[0] == "add()")
             {
                 commend = Console.ReadLine();
                 commends.Add(commend);
@@ -163,9 +176,143 @@ namespace QLib
                     goto start;
                 }
             }
+            #endregion
 
+            #region if
+            if (commends[0] == "?ask")
+            {
+                commend = Console.ReadLine();
+                commends.Add(commend);
+
+                if (commends[1] == "=int")
+                {
+
+                    commend = Console.ReadLine();
+                    int int_index_one = int.Parse(commend);
+
+                    commend = Console.ReadLine();
+                    int int_index_two = int.Parse(commend);
+
+                    if (ints[int_index_one] == ints[int_index_two])
+                    {
+                        Console.WriteLine("true");
+                    }
+                    else
+                    {
+                        Console.WriteLine("false");
+                    }
+
+                }
+                if (commends[1] == ">int")
+                {
+                    commend = Console.ReadLine();
+                    int int_index_one = int.Parse(commend);
+
+                    commend = Console.ReadLine();
+                    int int_index_two = int.Parse(commend);
+
+                    if (ints[int_index_one] == ints[int_index_two])
+                    {
+                        Console.WriteLine("true");
+                    }
+                    else
+                    {
+                        Console.WriteLine("false");
+                    }
+                }
+                if (commends[1] == "<int")
+                {
+                    commend = Console.ReadLine();
+                    int int_index_one = int.Parse(commend);
+
+                    commend = Console.ReadLine();
+                    int int_index_two = int.Parse(commend);
+
+                    if (ints[int_index_one] == ints[int_index_two])
+                    {
+                        Console.WriteLine("true");
+                    }
+                    else
+                    {
+                        Console.WriteLine("false");
+                    }
+                }
+            }
+            #endregion
+
+            #region rev()
+
+            if (commends[0] == "rev()")
+            {
+                commend = Console.ReadLine();
+                commends.Add(commend);
+
+                if (commends[1] == "str")
+                {
+                    Console.Write("index.");
+                    commend = Console.ReadLine();
+
+                    int rev_indx = int.Parse(commend);
+                    string to_reverse = strings[rev_indx];
+
+                    char[] cArray = to_reverse.ToCharArray();
+                    string reversed = String.Empty;
+                    for (int i = cArray.Length - 1; i > -1; i--)
+                    {
+                        reversed += cArray[i];
+                    }
+
+                    Console.WriteLine(reversed);
+
+                    Console.Write("?save.");
+                    var choice = Console.ReadLine();
+
+                    switch (choice)
+                    {
+                        case "true":
+                            ile_str += 1;
+                            strings.Add(ile_str, reversed);
+                            goto start;
+
+                        case "false":
+                            goto start;
+
+                        default:
+                            goto start;
+                    }
+
+                }
+            }
+
+            #endregion
+
+            #region addLib
+
+            if (commends[0] == "addLib()")
+            {
+                commend = Console.ReadLine();
+                commends.Add(commend);
+                if (commends[1] == "vanilla")
+                {
+                    commend = Console.ReadLine();
+                    commends.Add(commend);
+
+                    if (commends[2] == "QLibSimple")
+                    {
+                        QLibSimple qLibSimple = new QLibSimple();
+                        QLibSimple.usingQLibSimple = true;
+                        usingLib.Add(QLibSimple.name);
+                        goto start;
+                    }
+                }
+            }
+
+            #endregion
+
+            #region finish
             line += 1;
             goto start;
+            #endregion
         }
     }
 }
