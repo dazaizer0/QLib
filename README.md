@@ -1,2 +1,1 @@
-# Q+
-Q+ Librarys
+# QLib
