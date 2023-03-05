@@ -23,9 +23,9 @@ QLib - string - int - bool
     example:
         while x ( do it x times )
 - ?ask
-    =int >> int index
-    >int >> int index
-    <int >> int index
+    > "=int >> int index"
+    > ">int >> int index"
+    > "<int >> int index"
 - rev()
     str:
         index. >> string index
