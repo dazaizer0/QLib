@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace QLib
 {
@@ -27,7 +28,9 @@ namespace QLib
             start:
 
             Console.Clear();
+
             Console.WriteLine();
+
             foreach (var item in usingLib)
             {
                 Console.WriteLine("Using: " + item + "; ");
@@ -370,7 +373,7 @@ namespace QLib
             if (commends[0] == "write")
             {
 
-                Console.WriteLine("for: ");
+                Console.WriteLine("> ");
                 var text = Console.ReadLine();
 
                 write(text);
@@ -437,6 +440,14 @@ namespace QLib
             #endregion
 
             #region finish
+            Console.Write("returning");
+
+            Thread.Sleep(250); Console.Write(".");
+            Thread.Sleep(250); Console.Write(".");
+            Thread.Sleep(250); Console.Write(".");
+            Thread.Sleep(250); Console.Write(".");
+            Thread.Sleep(250); Console.Write(".");
+
             line += 1;
             goto start;
             #endregion
