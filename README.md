@@ -26,6 +26,7 @@ QLib - string - int - bool
     > "=int >> int index"
     > ">int >> int index"
     > "<int >> int index"
+    > "str >> str index"
 - rev()
     str:
         index. >> string index
