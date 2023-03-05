@@ -220,6 +220,8 @@ namespace QLib
                         Console.WriteLine("false");
                     }
                 }
+
+
                 if (commends[1] == "<int")
                 {
                     commend = Console.ReadLine();
@@ -236,6 +238,26 @@ namespace QLib
                     {
                         Console.WriteLine("false");
                     }
+                }
+
+                if (commends[1] == "str")
+                {
+
+                    commend = Console.ReadLine();
+                    int int_index_one = int.Parse(commend);
+
+                    commend = Console.ReadLine();
+                    int int_index_two = int.Parse(commend);
+
+                    if (strings[int_index_one] == strings[int_index_two])
+                    {
+                        Console.WriteLine("true");
+                    }
+                    else
+                    {
+                        Console.WriteLine("false");
+                    }
+
                 }
             }
             #endregion
