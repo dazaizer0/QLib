@@ -11,10 +11,22 @@ namespace QLib
         public static string name = "QLibSimple";
         public static bool usingQLibSimple = false;
 
-       public  static string write(string text)
-        {
+       public string write(string text)
+       {
+
             return text;
+       }
+
+        public string save_txt()
+        {
+
+            return "";
         }
 
+        public string load_txt()
+        {
+
+            return "";
+        }
     }
 }

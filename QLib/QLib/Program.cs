@@ -20,15 +20,14 @@ namespace QLib
 
             Dictionary<int, int> ints = new Dictionary<int, int>();
             int ile_int = 0;
-
             Dictionary<int, string> strings = new Dictionary<int, string>();
             int ile_str = 0;
+
 
             #region main-stream
             start:
 
             Console.Clear();
-
             Console.WriteLine();
 
             foreach (var item in usingLib)
@@ -62,6 +61,7 @@ namespace QLib
             #region sum()
             if (commends[0] == "sum()")
             {
+                sum:
                 commend = Console.ReadLine();
                 commends.Add(commend);
             
@@ -146,6 +146,10 @@ namespace QLib
                             goto start;
                     }
                 }
+                else
+                {
+                    goto sum;
+                }
 
             }
             #endregion
@@ -158,6 +162,7 @@ namespace QLib
 
                 if (commends[1] == "str")
                 {
+
                     commend = Console.ReadLine();
                     commends.Add(commend);
 
@@ -170,6 +175,7 @@ namespace QLib
 
                 if (commends[1] == "int")
                 {
+
                     commend = Console.ReadLine();
                     commends.Add(commend);
 
@@ -283,6 +289,7 @@ namespace QLib
 
                     char[] cArray = to_reverse.ToCharArray();
                     string reversed = String.Empty;
+
                     for (int i = cArray.Length - 1; i > -1; i--)
                     {
                         reversed += cArray[i];
@@ -318,6 +325,7 @@ namespace QLib
             {
                 commend = Console.ReadLine();
                 commends.Add(commend);
+
                 if (commends[1] == "vanilla")
                 {
                     commend = Console.ReadLine();
@@ -325,6 +333,7 @@ namespace QLib
 
                     if (commends[2] == "QLibSimple")
                     {
+
                         QLibSimple qLibSimple = new QLibSimple();
                         QLibSimple.usingQLibSimple = true;
                         usingLib.Add(QLibSimple.name);
@@ -372,17 +381,36 @@ namespace QLib
             #region write
             if (commends[0] == "write")
             {
+                commend = Console.ReadLine();
+                commends.Add(commend);
 
-                Console.WriteLine("> ");
-                var text = Console.ReadLine();
+                if (commends[1] == "vanilla")
+                {
+                    commend = Console.ReadLine();
+                    commends.Add(commend);
 
-                QLibSimple.write(text);
+                    if (commends[2] == "QLibSimple")
+                    {
+                        Console.Write(" > ");
+                        var text = Console.ReadLine();
+
+                        QLibSimple qLibSimple = new QLibSimple();
+                        QLibSimple.usingQLibSimple = true;
+                        usingLib.Add(QLibSimple.name);
+
+
+                        Console.WriteLine(qLibSimple.write(text));
+                    }
+                }
             }
             #endregion
 
             #region loop
             if (commends[0] == "for")
             {
+
+                start_for:
+
                 Console.WriteLine("for: ");
                 var for_var = Console.ReadLine();
 
@@ -391,6 +419,7 @@ namespace QLib
 
                 if (commends[1] == "from")
                 {
+
                     Console.WriteLine("from: ");
                     var from_var = Console.ReadLine();
 
@@ -399,6 +428,7 @@ namespace QLib
 
                     if (commends[2] == "how")
                     {
+
                         Console.WriteLine("how: ");
                         var how_var = Console.ReadLine();
 
@@ -407,21 +437,27 @@ namespace QLib
 
                         if (commends[3] == "what")
                         {
+
                             int forint = int.Parse(for_var);
                             int fromint = int.Parse(from_var);
                             int howint = int.Parse(how_var);
 
-                            Console.WriteLine("for { }: ");
+                            Console.WriteLine("for {  }: ");
                             var choice = Console.ReadLine();
 
-                            if(choice == "write")
+                            if (choice == "write.vanilla.QLibSimple")
                             {
+                                QLibSimple qLib = new QLibSimple();
+                                QLibSimple.usingQLibSimple = true;
+                                usingLib.Add(QLibSimple.name);
+
                                 Console.WriteLine("in write: ");
                                 var what = Console.ReadLine();
 
                                 for (int i = fromint; i < forint; i += howint)
                                 {
-                                    Console.WriteLine(QLibSimple.write(what));
+
+                                    Console.WriteLine(qLib.write(what));
                                 }
                             }
 
@@ -433,13 +469,25 @@ namespace QLib
                                 }
                             }
 
-                            if (choice == "sum()")
+                            if (choice == "sium()")
                             {
+                                Console.WriteLine("to sum: ");
+                                var what = Console.ReadLine();
 
+                                int what_int = int.Parse(what);
 
                                 for (int i = fromint; i < forint; i += howint)
                                 {
-                                    Console.WriteLine(i);
+                                    try
+                                    {
+                                        Console.WriteLine(ints[what_int] * i);
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine("error 404");
+                                        Thread.Sleep(500);
+                                        goto start_for;
+                                    }
                                 }
                             }
                         }
@@ -449,20 +497,65 @@ namespace QLib
             }
             #endregion
 
+            #region txt.files
+            if (commends[0] == "QLibSimple(txt)")
+            {
+                QLibSimple qLibSimple = new QLibSimple();
+                QLibSimple.usingQLibSimple = true;
+                usingLib.Add(QLibSimple.name);
+
+                commend = Console.ReadLine();
+                commends.Add(commend);
+
+                if (commends[1] == "save")
+                {
+
+                    qLibSimple.save_txt();
+                }
+
+                else if (commends[1] == "load")
+                {
+
+                    qLibSimple.load_txt();
+                }
+            }
+            #endregion
+
             #region finish
-            Console.Write("returning");
 
-            Thread.Sleep(250); Console.Write(".");
-            Thread.Sleep(250); Console.Write(".");
-            Thread.Sleep(250); Console.Write(".");
-            Thread.Sleep(250); Console.Write(".");
-            Thread.Sleep(250); Console.Write(".");
+            Console.Write("return> ");
+            var end = Console.ReadLine();
 
-            line += 1;
-            goto start;
+            switch (end)
+            {
+                case "return":
+
+                    Thread.Sleep(100); Console.Write(".");
+
+                    line += 1;
+                    goto start;
+
+                case "return.vanilla.QLibSimple":
+
+                    QLibSimple qLibSimple = new QLibSimple();
+                    QLibSimple.usingQLibSimple = true;
+                    usingLib.Add(QLibSimple.name);
+
+                    Thread.Sleep(100); Console.Write(".");
+
+                    line += 1;
+                    goto start;
+
+                default:
+                    Console.Write("returning");
+                    Thread.Sleep(100); Console.Write(".");
+                    Thread.Sleep(100); Console.Write(".");
+                    Thread.Sleep(100); Console.Write(".");
+
+                    line += 1;
+                    goto start;
+            }
             #endregion
         }
-
-        
     }
 }
