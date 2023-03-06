@@ -576,6 +576,90 @@ namespace QLib
             }
             #endregion
 
+            #region while
+
+            if (commends[0] == "while")
+            {
+
+                Console.WriteLine("while: ");
+                commend = Console.ReadLine();
+
+                int while_int = int.Parse(commend);
+
+                Console.WriteLine("do: ");
+                commend = Console.ReadLine();
+                commends.Add(commend);
+
+                if (commends[1] == "write")
+                {
+                    if (commends[2] == "QLibSimple")
+                    {
+                        QLibSimple qLib = new QLibSimple();
+                        QLibSimple.usingQLibSimple = true;
+                        usingLib.Add(QLibSimple.name);
+
+                        Console.Write("what: ");
+                        commend = Console.ReadLine();
+
+                        string what = commend;
+
+                        int i = 0;
+                        while(i != while_int)
+                        {
+
+                            Console.WriteLine(qLib.write(what));
+                            i++;
+                        }
+                    }
+
+                } else if (commends[1] == "i")
+                {
+
+                    int i = 0;
+                    while( i != while_int)
+                    {
+
+                        Console.WriteLine(i);
+                        i++;
+                    }
+                } else if (commends[1] == "variable")
+                {
+                    try
+                    {
+                        Console.WriteLine("variable: ");
+                        var what = Console.ReadLine();
+
+                        int int_index = int.Parse(what);
+
+                        try
+                        {
+                            int what_int = int.Parse(what);
+                            int i = 0;
+                            while (i != while_int)
+                            {
+                                Console.WriteLine(ints[int_index]);
+                                i++;
+                            }
+                        }
+                        catch
+                        {
+                            Console.WriteLine("error");
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine("error");
+                    }
+
+                }
+                else
+                {
+                    goto start;
+                }
+            }
+
+            #endregion
+
             #region finish
             finish:
 
