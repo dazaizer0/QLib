@@ -466,6 +466,11 @@ namespace QLib
 
                 start_for:
 
+                Console.WriteLine("multiple(2):");
+                commend = Console.ReadLine();
+
+                int howmany = int.Parse(commend);
+
                 Console.WriteLine("for: ");
                 var for_var = Console.ReadLine();
 
@@ -549,6 +554,23 @@ namespace QLib
                                     }
                                 }
                             }
+
+                            if (howmany > 1 && choice == "multiple")
+                            {
+
+                                for (int i = fromint; i < forint; i += howint)
+                                {
+
+                                    for (int j = fromint; j < forint; j += howint)
+                                    {
+
+                                        Console.Write(" *");
+                                    }
+
+                                    Console.WriteLine();
+                                }
+                            }
+
 
                             if (choice == "variable")
                             {
