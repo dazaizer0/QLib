@@ -1,5 +1,7 @@
 ﻿#region QLibBasic
 #region using
+
+// QLibBasic
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -627,6 +629,9 @@ namespace QLib
 
                 if (commends[1] == "write")
                 {
+
+                    commend = Console.ReadLine();
+                    commends.Add(commend);
 
                     if (commends[2] == "QLibSimple")
                     {
