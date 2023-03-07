@@ -640,17 +640,19 @@ namespace QLib
             if (commends[0] == "while")
             {
 
-                Console.WriteLine("while: ");
                 commend = Console.ReadLine();
 
                 int while_int = int.Parse(commend);
 
-                Console.WriteLine("do: ");
+                Console.Write("do.");
                 commend = Console.ReadLine();
                 commends.Add(commend);
 
                 if (commends[1] == "write")
                 {
+
+                    Console.Clear();
+                    Console.Write("while.do.write(lib).");
 
                     commend = Console.ReadLine();
                     commends.Add(commend);
@@ -662,7 +664,8 @@ namespace QLib
                         QLibSimple.usingQLibSimple = true;
                         usingLib.Add(QLibSimple.name);
 
-                        Console.Write("what: ");
+                        Console.Clear();
+                        Console.Write("while.do.write(QLibSimple).(text)");
                         commend = Console.ReadLine();
 
                         string what = commend;
@@ -693,7 +696,7 @@ namespace QLib
                     try
                     {
 
-                        Console.WriteLine("variable: ");
+                        Console.WriteLine("variable.");
                         var what = Console.ReadLine();
 
                         int int_index = int.Parse(what);
