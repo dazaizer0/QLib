@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.IO;
 #endregion
 
 namespace QLib
@@ -603,13 +604,13 @@ namespace QLib
             if (commends[0] == "QLibSimple(txt)")
             {
 
-                Console.WriteLine("in development"); goto finish;
+                //Console.WriteLine("in development"); goto finish;
 
                 QLibSimple qLibSimple = new QLibSimple();
                 QLibSimple.usingQLibSimple = true;
                 usingLib.Add(QLibSimple.name);
 
-                Console.WriteLine("path: ");
+                /*Console.WriteLine("path: ");*/
 
                 commend = Console.ReadLine();
                 commends.Add(commend);
@@ -620,17 +621,112 @@ namespace QLib
                 if (commends[1] == "save")
                 {
 
-                    foreach (var item in ints)
+                    commend = Console.ReadLine();
+                    commends.Add(commend);
+
+                    if (commends[2] == "str")
                     {
 
-                        qLibSimple.save_int(path, item.Key, item.Value);
-                    }
-                }
+                        commend = Console.ReadLine();
+                        commends.Add(commend);
 
-                else if (commends[1] == "load")
+                        int indToSave = int.Parse(commend);
+
+                        StreamWriter streamWriter;
+
+                        if (!File.Exists(path))
+                        {
+
+                            streamWriter = File.CreateText(path); // tworzymy plik
+                            Console.WriteLine("\n File have created...");
+                        }
+                        else
+                        {
+
+                            streamWriter = new StreamWriter(path, true); // append = true - dołacz, faalse != append = zapisuje na nowo
+                            Console.WriteLine("\n File have opened...");
+                        }
+
+                        streamWriter.WriteLine(/*"string: " + */ strings[indToSave]); // zapisujemy do pliku
+
+                        streamWriter.Close(); // zamykamy plik
+
+                    }
+                    else if (commends[2] == "int")
+                    {
+
+                        commend = Console.ReadLine();
+                        commends.Add(commend);
+
+                        int indToSave = int.Parse(commend);
+
+                        StreamWriter streamWriter;
+
+                        if (!File.Exists(path))
+                        {
+
+                            streamWriter = File.CreateText(path); // tworzymy plik
+                            Console.WriteLine("\n File have created...");
+                        }
+                        else
+                        {
+
+                            streamWriter = new StreamWriter(path, true); // append = true - dołacz, faalse != append = zapisuje na nowo
+                            Console.WriteLine("\n File have opened...");
+                        }
+
+                        streamWriter.WriteLine(/*"int: " + */ ints[indToSave]); // zapisujemy do pliku
+
+                        streamWriter.Close(); // zamykamy plik
+                    }
+                } else if (commends[1] == "load")
                 {
 
-                    qLibSimple.load_txt(path);
+                    StreamReader streamReader = File.OpenText(path);
+
+                    string data = "";
+                    int i = 1;
+
+                    Console.WriteLine("\n Zawartość pliku...");
+
+                    while ((data = streamReader.ReadLine()) != null) // != null - dopuki nie napotka pustej linii
+                    {
+
+                        whileP:
+
+                        Console.WriteLine(i++ + " - " + data);
+
+                        Console.Write("?save.");
+                        var choice = Console.ReadLine();
+
+                        if(choice == "true")
+                        {
+
+                            Console.WriteLine("int or str.");
+                            commend = Console.ReadLine();
+                            commends.Add(commend);
+
+                            if (commend == "int")
+                            {
+
+                                ile_int += 1;
+
+                                int data_int = int.Parse(data);
+                                ints.Add(ile_int, data_int);
+                            }
+                            else
+                            {
+
+                                ile_str += 1;
+                                strings.Add(ile_str, data);
+                            }
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    streamReader.Close();
                 }
             }
             #endregion

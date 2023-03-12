@@ -1,7 +1,8 @@
 D:\QLib\QLib\QLib\QLib\bin\Debug\QLib.exe.config
 D:\QLib\QLib\QLib\QLib\bin\Debug\QLib.exe
 D:\QLib\QLib\QLib\QLib\bin\Debug\QLib.pdb
-D:\QLib\QLib\QLib\QLib\obj\Debug\QLib.csprojAssemblyReference.cache
 D:\QLib\QLib\QLib\QLib\obj\Debug\QLib.csproj.CoreCompileInputs.cache
 D:\QLib\QLib\QLib\QLib\obj\Debug\QLib.exe
 D:\QLib\QLib\QLib\QLib\obj\Debug\QLib.pdb
+D:\QLib\QLib\QLib\QLib\obj\Debug\QLib.csproj.AssemblyReference.cache
+D:\QLib\QLib\QLib\QLib\obj\Debug\QLib.csproj.SuggestedBindingRedirects.cache
